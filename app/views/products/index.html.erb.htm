@@ -1,0 +1,37 @@
+
+<!-- saved from url=(0094)http://media.pragprog.com/titles/rails4/code/rails30/depot_b/app/views/products/index.html.erb -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><style type="text/css"></style></head><body><div id="product_list">
+  <h1>Listing products</h1>
+
+  
+  &lt;% @products.each do |product| %&gt;
+    
+  &lt;% end %&gt;
+  <table><tbody><tr class="&lt;%= cycle(&#39;list_line_odd&#39;, &#39;list_line_even&#39;) %&gt;">
+
+      <td>
+        &lt;%= image_tag(product.image_url, :class =&gt; 'list_image') %&gt;
+      </td>
+
+      <td class="list_description">
+        <dl>
+          <dt>&lt;%= product.title %&gt;</dt>
+          <dd>&lt;%= truncate(strip_tags(product.description),
+                 :length =&gt; 80) %&gt;</dd>
+        </dl>
+      </td>
+
+      <td class="list_actions">
+        &lt;%= link_to 'Show', product %&gt;<br>
+        &lt;%= link_to 'Edit', edit_product_path(product) %&gt;<br>
+        &lt;%= link_to 'Destroy', product, 
+                    :confirm =&gt; 'Are you sure?',
+                    :method =&gt; :delete %&gt;
+      </td>
+    </tr></tbody></table>
+</div>
+
+<br>
+
+&lt;%= link_to 'New product', new_product_path %&gt;
+</body></html>
